@@ -41,11 +41,17 @@
             <div id="personal" class="tab-content active">
                 <h3><i class="fas fa-user"></i> Personal Information</h3>
                 
-                <!-- Photo Upload -->
-                <div class="photo-upload-container">
-                    <div class="photo-preview" id="photoPreview">
-                        <i class="fas fa-camera"></i>
-                        <span>Upload Photo</span>
+                <!-- Photo Upload Section -->
+<div class="form-group">
+    <h3>Profile Photo</h3>
+    <div class="photo-upload">
+        <img id="photoPreview" class="photo-preview" alt="Profile Photo">
+        <input type="file" id="photoInput" accept="image/*">
+        <button type="button" class="upload-btn" onclick="document.getElementById('photoInput').click()">
+            📷 Upload Photo
+        </button>
+    </div>
+</div>
                     </div>
                     <input type="file" id="photoUpload" accept="image/*" hidden>
                     <button type="button" onclick="document.getElementById('photoUpload').click()" class="upload-btn">
@@ -162,4 +168,5 @@
 
     <script src="script.js"></script>
 </body>
+
 </html>
