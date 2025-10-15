@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pro Resume Builder - Free Professional CV Maker</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Loading Animation -->
+    <div class="loading" id="loading">
+        <div class="loader"></div>
+        <p>Loading Pro Resume Builder...</p>
+    </div>
+
+    <!-- Google Ads Top -->
+    <div class="ad-space">
+        <div class="ad-placeholder">Advertisement Space</div>
+    </div>
+
+    <!-- Header with Animation -->
+    <header class="header animate-slide-down">
+        <div class="container">
+            <h1><i class="fas fa-file-alt"></i> Pro Resume Builder</h1>
+            <p>Create Professional Resumes with Photos - Free & Easy</p>
+        </div>
+    </header>
+
+    <div class="main-container">
+        <!-- Left Side - Form -->
+        <div class="form-container animate-fade-in">
+            <div class="form-tabs">
+                <button class="tab-btn active" onclick="openTab('personal')">Personal</button>
+                <button class="tab-btn" onclick="openTab('experience')">Experience</button>
+                <button class="tab-btn" onclick="openTab('education')">Education</button>
+                <button class="tab-btn" onclick="openTab('skills')">Skills</button>
+            </div>
+
+            <!-- Personal Tab -->
+            <div id="personal" class="tab-content active">
+                <h3><i class="fas fa-user"></i> Personal Information</h3>
+                
+                <!-- Photo Upload -->
+                <div class="photo-upload-container">
+                    <div class="photo-preview" id="photoPreview">
+                        <i class="fas fa-camera"></i>
+                        <span>Upload Photo</span>
+                    </div>
+                    <input type="file" id="photoUpload" accept="image/*" hidden>
+                    <button type="button" onclick="document.getElementById('photoUpload').click()" class="upload-btn">
+                        <i class="fas fa-upload"></i> Choose Photo
+                    </button>
+                </div>
+
+                <div class="form-grid">
+                    <input type="text" id="fullName" placeholder="Full Name" class="form-input">
+                    <input type="text" id="jobTitle" placeholder="Desired Job Title" class="form-input">
+                    <input type="email" id="email" placeholder="Email Address" class="form-input">
+                    <input type="tel" id="phone" placeholder="Phone Number" class="form-input">
+                    <input type="text" id="location" placeholder="City, Country" class="form-input">
+                    <input type="text" id="linkedin" placeholder="LinkedIn Profile (Optional)" class="form-input">
+                </div>
+                
+                <textarea id="summary" placeholder="Professional Summary..." class="form-textarea"></textarea>
+            </div>
+
+            <!-- Experience Tab -->
+            <div id="experience" class="tab-content">
+                <h3><i class="fas fa-briefcase"></i> Work Experience</h3>
+                <div class="experience-item">
+                    <input type="text" placeholder="Job Title" class="form-input">
+                    <input type="text" placeholder="Company Name" class="form-input">
+                    <div class="date-grid">
+                        <input type="month" placeholder="Start Date" class="form-input">
+                        <input type="month" placeholder="End Date" class="form-input">
+                    </div>
+                    <textarea placeholder="Job Description & Achievements..." class="form-textarea"></textarea>
+                </div>
+                <button type="button" class="add-btn"><i class="fas fa-plus"></i> Add Another Experience</button>
+            </div>
+
+            <!-- Education Tab -->
+            <div id="education" class="tab-content">
+                <h3><i class="fas fa-graduation-cap"></i> Education</h3>
+                <div class="education-item">
+                    <input type="text" placeholder="Degree/Course" class="form-input">
+                    <input type="text" placeholder="School/University" class="form-input">
+                    <div class="date-grid">
+                        <input type="month" placeholder="Start Date" class="form-input">
+                        <input type="month" placeholder="End Date" class="form-input">
+                    </div>
+                    <textarea placeholder="Achievements & Details..." class="form-textarea"></textarea>
+                </div>
+                <button type="button" class="add-btn"><i class="fas fa-plus"></i> Add Another Education</button>
+            </div>
+
+            <!-- Skills Tab -->
+            <div id="skills" class="tab-content">
+                <h3><i class="fas fa-star"></i> Skills & Expertise</h3>
+                <div class="skills-container">
+                    <div class="skill-input-group">
+                        <input type="text" id="skillInput" placeholder="Add skills (e.g., JavaScript, Photoshop)" class="form-input">
+                        <button type="button" onclick="addSkill()" class="skill-add-btn"><i class="fas fa-plus"></i></button>
+                    </div>
+                    <div class="skills-list" id="skillsList"></div>
+                </div>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="action-buttons">
+                <button onclick="generateResume()" class="generate-btn">
+                    <i class="fas fa-magic"></i> Generate Resume
+                </button>
+                <button onclick="resetForm()" class="reset-btn">
+                    <i class="fas fa-redo"></i> Reset Form
+                </button>
+            </div>
+        </div>
+
+        <!-- Right Side - Preview -->
+        <div class="preview-container animate-fade-in">
+            <div class="preview-header">
+                <h3><i class="fas fa-eye"></i> Live Preview</h3>
+                <div class="template-selector">
+                    <select id="templateSelect" onchange="changeTemplate()">
+                        <option value="professional">Professional</option>
+                        <option value="modern">Modern</option>
+                        <option value="creative">Creative</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Resume Preview -->
+            <div class="resume-preview" id="resumePreview">
+                <div class="resume professional-template">
+                    <!-- Preview content will be generated here -->
+                </div>
+            </div>
+
+            <!-- Download Options -->
+            <div class="download-options">
+                <button onclick="downloadPDF()" class="download-btn pdf-btn">
+                    <i class="fas fa-file-pdf"></i> Download PDF
+                </button>
+                <button onclick="printResume()" class="download-btn print-btn">
+                    <i class="fas fa-print"></i> Print Resume
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Google Ads Bottom -->
+    <div class="ad-space">
+        <div class="ad-placeholder">Advertisement Space</div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2024 Pro Resume Builder. Create professional resumes for free.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

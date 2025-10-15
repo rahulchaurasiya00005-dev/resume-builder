@@ -1,0 +1,440 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary: #4361ee;
+    --secondary: #3a0ca3;
+    --accent: #7209b7;
+    --light: #f8f9fa;
+    --dark: #212529;
+    --success: #4cc9f0;
+    --warning: #f72585;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* Loading Animation */
+.loading {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255,255,255,0.95);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.loader {
+    border: 5px solid #f3f3f3;
+    border-top: 5px solid var(--primary);
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 1s linear infinite;
+    margin-bottom: 20px;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Animations */
+@keyframes slideDown {
+    from { transform: translateY(-50px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-slide-down {
+    animation: slideDown 0.8s ease-out;
+}
+
+.animate-fade-in {
+    animation: fadeIn 0.8s ease-out 0.3s both;
+}
+
+/* Google Ads */
+.ad-space {
+    background: rgba(255,255,255,0.1);
+    padding: 15px;
+    margin: 10px auto;
+    text-align: center;
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+    max-width: 1200px;
+}
+
+.ad-placeholder {
+    color: rgba(255,255,255,0.7);
+    padding: 20px;
+    border: 2px dashed rgba(255,255,255,0.3);
+    border-radius: 8px;
+}
+
+/* Header */
+.header {
+    background: rgba(255,255,255,0.95);
+    backdrop-filter: blur(20px);
+    padding: 30px 0;
+    text-align: center;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+}
+
+.header h1 {
+    color: var(--primary);
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+.header p {
+    color: var(--dark);
+    font-size: 1.1rem;
+    opacity: 0.8;
+}
+
+/* Main Container */
+.main-container {
+    display: flex;
+    gap: 30px;
+    max-width: 1400px;
+    margin: 30px auto;
+    padding: 0 20px;
+}
+
+/* Form Container */
+.form-container {
+    flex: 1;
+    background: white;
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+    min-width: 400px;
+}
+
+/* Tabs */
+.form-tabs {
+    display: flex;
+    gap: 5px;
+    margin-bottom: 30px;
+    background: #f8f9fa;
+    padding: 5px;
+    border-radius: 15px;
+}
+
+.tab-btn {
+    flex: 1;
+    padding: 12px;
+    border: none;
+    background: transparent;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 600;
+}
+
+.tab-btn.active {
+    background: var(--primary);
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(67, 97, 238, 0.3);
+}
+
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+    animation: fadeIn 0.5s ease;
+}
+
+/* Photo Upload */
+.photo-upload-container {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.photo-preview {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background: #f8f9fa;
+    border: 3px dashed #ddd;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 15px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.photo-preview:hover {
+    border-color: var(--primary);
+    transform: scale(1.05);
+}
+
+.photo-preview i {
+    font-size: 2rem;
+    color: #999;
+    margin-bottom: 5px;
+}
+
+.upload-btn {
+    background: var(--primary);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.upload-btn:hover {
+    background: var(--secondary);
+    transform: translateY(-2px);
+}
+
+/* Form Elements */
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.form-input, .form-textarea {
+    width: 100%;
+    padding: 15px;
+    border: 2px solid #e9ecef;
+    border-radius: 10px;
+    font-size: 16px;
+    transition: all 0.3s ease;
+}
+
+.form-input:focus, .form-textarea:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(67, 97, 238, 0.1);
+    transform: translateY(-2px);
+}
+
+.form-textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+
+/* Skills */
+.skill-input-group {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.skill-add-btn {
+    background: var(--success);
+    color: white;
+    border: none;
+    padding: 0 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.skill-add-btn:hover {
+    transform: scale(1.1);
+}
+
+.skills-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.skill-tag {
+    background: var(--primary);
+    color: white;
+    padding: 8px 15px;
+    border-radius: 20px;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    animation: fadeIn 0.3s ease;
+}
+
+.skill-tag i {
+    cursor: pointer;
+    opacity: 0.7;
+}
+
+.skill-tag i:hover {
+    opacity: 1;
+}
+
+/* Buttons */
+.action-buttons {
+    display: flex;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+.generate-btn, .reset-btn, .add-btn {
+    flex: 1;
+    padding: 15px;
+    border: none;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.generate-btn {
+    background: linear-gradient(135deg, var(--primary), var(--accent));
+    color: white;
+}
+
+.generate-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(67, 97, 238, 0.3);
+}
+
+.reset-btn {
+    background: #e9ecef;
+    color: var(--dark);
+}
+
+.reset-btn:hover {
+    background: #dee2e6;
+    transform: translateY(-2px);
+}
+
+.add-btn {
+    background: transparent;
+    border: 2px dashed #ddd;
+    color: #666;
+}
+
+.add-btn:hover {
+    border-color: var(--primary);
+    color: var(--primary);
+}
+
+/* Preview Container */
+.preview-container {
+    flex: 1;
+    min-width: 400px;
+}
+
+.preview-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    color: white;
+}
+
+.resume-preview {
+    background: white;
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+    min-height: 600px;
+}
+
+/* Download Options */
+.download-options {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.download-btn {
+    flex: 1;
+    padding: 15px;
+    border: none;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.pdf-btn {
+    background: linear-gradient(135deg, #ff6b6b, #ee5a24);
+    color: white;
+}
+
+.print-btn {
+    background: linear-gradient(135deg, #1dd1a1, #10ac84);
+    color: white;
+}
+
+.download-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+/* Footer */
+.footer {
+    text-align: center;
+    color: white;
+    padding: 30px;
+    background: rgba(0,0,0,0.1);
+    margin-top: 50px;
+}
+
+/* Mobile Responsive */
+@media (max-width: 968px) {
+    .main-container {
+        flex-direction: column;
+    }
+    
+    .form-container, .preview-container {
+        min-width: auto;
+    }
+    
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .header h1 {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .main-container {
+        padding: 0 10px;
+    }
+    
+    .form-container {
+        padding: 20px;
+    }
+    
+    .action-buttons {
+        flex-direction: column;
+    }
+    
+    .download-options {
+        flex-direction: column;
+    }
+}
