@@ -127,7 +127,35 @@ body {
     box-shadow: 0 15px 35px rgba(0,0,0,0.1);
     min-width: 400px;
 }
+/* Photo Upload Styling */
+.photo-upload {
+    text-align: center;
+    margin: 20px 0;
+}
 
+.photo-preview {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #667eea;
+    margin: 10px auto;
+    display: none;
+}
+
+.upload-btn {
+    background: #28a745;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 10px;
+}
+
+#photoInput {
+    display: none;
+}
 /* Tabs */
 .form-tabs {
     display: flex;
@@ -437,4 +465,5 @@ body {
     .download-options {
         flex-direction: column;
     }
+
 }
