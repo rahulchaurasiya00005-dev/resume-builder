@@ -16,23 +16,42 @@ document.addEventListener('DOMContentLoaded', function() {
     generateResume();
 });
 
-// Photo upload functionality
-function initializePhotoUpload() {
-    const photoUpload = document.getElementById('photoUpload');
-    const photoPreview = document.getElementById('photoPreview');
+// Photo Upload Functionality
+document.getElementById('photoInput').addEventListene
+r('change', function(event) {
+    const file = event.target.files[0];
+    if (file) {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+            const photoPreview = document.getElementB
 
-    photoUpload.addEventListener('change', function(e) {
-        const file = e.target.files[0];
-        if (file) {
-            const reader = new FileReader();
-            reader.onload = function(e) {
-                photoPreview.innerHTML = `<img src="${e.target.result}" alt="Profile Photo">`;
-                photoPreview.style.backgroundImage = `url(${e.target.result})`;
-                photoPreview.style.backgroundSize = 'cover';
-                photoPreview.style.backgroundPosition = 'center';
-            }
-            reader.readAsDataURL(file);
+yId('photoPreview');
+            photoPreview.src = e.target.result;
+
+photoPreview.style.display = 'block';
+            // Resume preview mein bhi photo show kar
+
+ein
+            update Resume Photo(e.target.result);
+
         }
+        reader.readAsDataURL(file);
+    }
+    });
+function update Resume Photo (photoData) {
+
+// Resume preview mein photo dikhane ke liye
+
+const resumePhoto = document.getElementById('resu
+mePhoto');
+    if (resumePhoto) {
+    resumePhoto.src = photoData;
+    resumePhoto.style.display = 'block';
+
+
+}
+}
+
     });
 }
 
@@ -258,4 +277,5 @@ document.getElementById('skillInput').addEventListener('keypress', function(e) {
         e.preventDefault();
         addSkill();
     }
+
 });
