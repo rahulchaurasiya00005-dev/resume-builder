@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free Resume Builder - Professional CV Maker</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Google Ads Space - Top -->
+    <div class="ad-space top-ad">
+        <!-- Google Ads code yahan paste karein -->
+        <div class="ad-placeholder">Google Ads Space - Top</div>
+    </div>
+
+    <!-- Header -->
+    <header class="header">
+        <h1>📄 Free Resume Builder</h1>
+        <p>Professional CV in 5 Minutes - Mobile Friendly</p>
+    </header>
+
+    <!-- Main Container -->
+    <div class="container">
+        <!-- Input Form -->
+        <div class="form-section">
+            <h2>Create Your Resume</h2>
+            
+            <form id="resumeForm">
+                <!-- Personal Information -->
+                <div class="form-group">
+                    <h3>Personal Information</h3>
+                    <input type="text" id="name" placeholder="Full Name" required>
+                    <input type="email" id="email" placeholder="Email Address">
+                    <input type="tel" id="phone" placeholder="Phone Number">
+                    <textarea id="address" placeholder="Address"></textarea>
+                </div>
+
+                <!-- Work Experience -->
+                <div class="form-group">
+                    <h3>Work Experience</h3>
+                    <input type="text" id="jobTitle" placeholder="Job Title">
+                    <input type="text" id="company" placeholder="Company Name">
+                    <input type="text" id="duration" placeholder="Duration (e.g., 2020-2023)">
+                    <textarea id="jobDescription" placeholder="Job Responsibilities"></textarea>
+                </div>
+
+                <!-- Education -->
+                <div class="form-group">
+                    <h3>Education</h3>
+                    <input type="text" id="degree" placeholder="Degree/Course">
+                    <input type="text" id="college" placeholder="College/University">
+                    <input type="text" id="educationDuration" placeholder="Duration">
+                </div>
+
+                <!-- Skills -->
+                <div class="form-group">
+                    <h3>Skills</h3>
+                    <input type="text" id="skills" placeholder="e.g., HTML, CSS, JavaScript, MS Office">
+                </div>
+
+                <button type="button" onclick="generateResume()">Create Resume</button>
+            </form>
+        </div>
+
+        <!-- Resume Preview -->
+        <div class="preview-section">
+            <h2>Live Preview</h2>
+            <div class="resume-preview" id="resumePreview">
+                <div class="resume-header">
+                    <h1 id="previewName">Your Name Here</h1>
+                    <p id="previewContact">Email | Phone | Address</p>
+                </div>
+                
+                <div class="resume-section">
+                    <h3>Work Experience</h3>
+                    <div id="previewExperience">
+                        <p><strong>Job Title</strong> at Company Name (Duration)</p>
+                        <p>Job responsibilities will appear here...</p>
+                    </div>
+                </div>
+
+                <div class="resume-section">
+                    <h3>Education</h3>
+                    <div id="previewEducation">
+                        <p>Degree from College (Duration)</p>
+                    </div>
+                </div>
+
+                <div class="resume-section">
+                    <h3>Skills</h3>
+                    <div id="previewSkills">
+                        <p>Your skills will appear here...</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Download Button -->
+            <button class="download-btn" onclick="downloadResume()">📥 Download PDF Resume</button>
+        </div>
+    </div>
+
+    <!-- Google Ads Space - Bottom -->
+    <div class="ad-space bottom-ad">
+        <!-- Google Ads code yahan paste karein -->
+        <div class="ad-placeholder">Google Ads Space - Bottom</div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>© 2024 Free Resume Builder - Create Professional CVs for Free</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
